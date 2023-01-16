@@ -1,4 +1,22 @@
-# forxpy
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# rforxr
+
+<!-- badges: start -->
+<!-- badges: end -->
 
 Package to access daily exchange rates and forex conversion created by Group 6: Dhruvi Nishar, Mohammad Reza Nabizadeh, Hongjian Li, and Stepan Zaiatc.
 
@@ -6,8 +24,11 @@ Package to access daily exchange rates and forex conversion created by Group 6: 
 
 ## Installation
 
-```bash
-$ pip install forxpy
+You can install the development version of regexcite from [GitHub](https://github.com/) with:
+      
+``` r
+# install.packages("devtools")
+devtools::install_github("UBC-MDS/forxr")
 ```
 
 ## Usage
