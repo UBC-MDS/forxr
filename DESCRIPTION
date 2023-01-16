@@ -1,0 +1,25 @@
+Package: forxr
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+  c(person(given = "Stepan",
+           family = "Zaiatc",
+           role = c("aut", "cre"),
+           email = "zaiatc.stepan@gmail.com"),
+    person(given = "Dhruvi",
+           family = "Nishar",
+           role = "ctb"),
+    person(given = "Mohammad",
+           family = "Nabizadeh",
+           role = "ctb"),
+    person(given = "Hongjian",
+           family = "Li",
+           role = "ctb"))
+Description: forxpy allows users to easily convert currency rates by utilizing data from Bank of Canada.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
