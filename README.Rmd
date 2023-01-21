@@ -39,7 +39,7 @@ devtools::install_github("UBC-MDS/forxr")
 
 - **retrieve_data()**: Retrieve historical daily currency exchange rate data for Canadian Dollars in CSV format from the Bank of Canada website.
 - **currency_convert**: The conversion rate is based on the average exchange rate by the 4:00 pm ET of the closest business day.
-- **fastest_slowest_currency()**: This function takes currency exchange rates data as input and returns a  list of two strings containing the fastest and slowest growing currency exchange rate in relation to Canadian Dollar. The data provided contains currency code in the format FX***CAD, the average exchange rate and the date.
+- **fastest_slowest_currency()**: This function takes start and end dates as input and returns a  list of lists containing the fastest and slowest growing currency exchange rate in relation to Canadian Dollar along with the current exchange rates in the given date range. The data provided contains currency code in the format FX***CAD, the average exchange rate and the date.
 - **plot_historical()**:Plots the historical rate of the entered currencies within a specific period of time.
 
 **forxpy** can be a useful tool for many industries that require currency conversions. Here are a few examples:
