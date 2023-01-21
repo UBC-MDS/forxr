@@ -47,7 +47,7 @@ currency_convert <- function(value, currency1, currency2) {
 #'
 #' @examples
 #' fastest_slowest_currency('2019-05-23', '2022-05-30')
-fastest_slowest_currency <- function(start_date, end_date){
+fastest_slowest_currency <- function(start_date, end_date) {
 
   # Check for invalid date format
   if (!grepl("^\\d{4}-\\d{2}-\\d{2}$", start_date) || !grepl("^\\d{4}-\\d{2}-\\d{2}$", end_date)){
