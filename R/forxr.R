@@ -54,7 +54,7 @@ fastest_slowest_currency <- function(start_date, end_date) {
     stop("Invalid date format. Please enter dates in the format '%YYYY-%mm-%dd'.")
   }
 
-  # Check for invalid date range
+  # Check for invalid range of dates
   start <- as.Date(start_date, format = "%Y-%m-%d")
   end <- as.Date(end_date, format = "%Y-%m-%d")
   if (start > end){
