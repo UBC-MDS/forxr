@@ -30,16 +30,18 @@ devtools::install_github("UBC-MDS/forxr")
 - **fastest_slowest_currency()**: This function takes currency exchange rates data as input and returns a list of two strings containing the fastest and slowest growing currency exchange rate in relation to Canadian Dollar. The data provided contains currency code in the format FX\*\*\*CAD, the average exchange rate and the date.
 - **plot_historical()**:Plots the historical rate of the entered currencies within a specific period of time.
 
-**forxpy** can be a useful tool for many industries that require currency conversions. Here are a few examples: 
+**forxpy** can be a useful tool for many industries that require currency conversions. Here are a few examples:
+
 1. **Finance and Banking**: Banks and financial institutions often need to convert currencies for international transactions, and “forxpy” can provide accurate and up-to-date exchange rates for these purposes. 
 2. **E-commerce**: Online retailers that sell internationally may need to display prices in multiple currencies, and “forxpy” can help them convert the prices in real-time. 
 3. **Travel and Tourism**: Travel agencies and booking websites may need to convert currency for pricing and budgeting purposes, and “forxpy” can provide them with accurate exchange rates. 4. **Data Analysis**: Companies that conduct global business can use “forxpy” to collect and analyze historical exchange rate data, which can be useful for making business decisions and forecasting.
 
 ## Contributing
+
 **Authors**: Dhruvi Nishar, Mohammad Reza Nabizadeh, Hongjian Li, and Stepan Zaiatc.
 
 Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
 
 ## License
 
-`forxpy` was created by Group 6 - Dhruvi Nishar, Mohammad Reza Nabizadeh, Hongjian Li, and Stepan Zaiatc. It is licensed under the terms of the MIT license.
+`forxr` was created by Group 6 at UBC MDS - Dhruvi Nishar, Mohammad Reza Nabizadeh, Hongjian Li, and Stepan Zaiatc. It is licensed under the terms of the MIT license.
