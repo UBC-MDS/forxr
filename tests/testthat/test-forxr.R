@@ -48,7 +48,7 @@ test_that("start and end date are correct", {
     expect_that(as.numeric(difftime(start, end, units = "days")) > 0, is_true())
 })
 
-# Tests if the function returns the items in the proper format
+# Tests if the function returns the items in the proper format of lists
 test_that("function returns a list", {
     res <- fastest_slowest_currency(start_date, end_date)
     expect_that(is.list(res), is_true())
