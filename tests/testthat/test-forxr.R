@@ -1,5 +1,4 @@
 #' Unit tests for retrieve_data function
-
 #' Test that the correct object type of data frame is returned
 test_that("retrieve_data doesn't return the correct object type", {
   data_frame <- retrieve_data()
@@ -31,3 +30,38 @@ test_that("data frame is exported as CSV file when export_csv = FALSE", {
   expect_false(file.exists("data_raw.csv"))
 })
 
+# Adding test cases for the fastest_slowest_currency function
+# Defining the function
+# fastest_slowest_currency <- function(start_date, end_date) {
+#     return(list(c("EUR", 1.2), c("IDR", 0.00008)))
+# }
+
+# Defining test cases
+context("fastest_slowest_currency tests")
+
+# Tests if the date formats are correct
+test_that("start and end date are correct", {
+    start_date <- "2019-05-23"
+    end_date <- "2022-05-30"
+    start <- as.Date(start_date, format = "%Y-%m-%d")
+    end <- as.Date(end_date, format = "%Y-%m-%d")
+    expect_that(as.numeric(difftime(start, end, units = "days")) > 0, is_true())
+})
+
+# Tests if the function returns the items in the proper format
+test_that("function returns a list", {
+    res <- fastest_slowest_currency(start_date, end_date)
+    expect_that(is.list(res), is_true())
+})
+
+# Tests if the function returns the correct fastest currency
+test_that("function returns correct fastest currency", {
+    res <- fastest_slowest_currency(start_date, end_date)
+    expect_equal(res[[1]][1], "EUR")
+})
+
+# Tests if the function returns the correct slowest currency
+test_that("function returns correct slowest currency", {
+    res <- fastest_slowest_currency(start_date, end_date)
+    expect_equal(res[[2]][1], "IDR")
+})
