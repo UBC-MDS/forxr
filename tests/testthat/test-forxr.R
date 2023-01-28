@@ -31,7 +31,7 @@ test_that("data frame is exported as CSV file when export_csv = FALSE", {
 })
 
 # Adding test cases for the fastest_slowest_currency function
-# Defining the function
+# Defining the function for testing the tests 
 # fastest_slowest_currency <- function(start_date, end_date) {
 #     return(list(c("EUR", 1.2), c("IDR", 0.00008)))
 # }
@@ -39,7 +39,7 @@ test_that("data frame is exported as CSV file when export_csv = FALSE", {
 # Defining test cases
 context("fastest_slowest_currency tests")
 
-# Tests if the date formats are correct
+# Tests if the date formats are correct and in order
 test_that("start and end date are correct", {
     start_date <- "2019-05-23"
     end_date <- "2022-05-30"
