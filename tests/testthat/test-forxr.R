@@ -39,7 +39,7 @@ test_that("data frame is exported as CSV file when export_csv = FALSE", {
 # Defining test cases
 context("fastest_slowest_currency tests")
 
-# Tests if the date formats are correct and in order
+# Tests if the date formats and range are correct and in order
 test_that("start and end date are correct", {
     start_date <- "2019-05-23"
     end_date <- "2022-05-30"
