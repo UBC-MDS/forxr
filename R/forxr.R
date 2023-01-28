@@ -76,8 +76,10 @@ currency_convert <- function(value, currency1, currency2) {
 #' The data provided contains currency code in the format FX***CAD,
 #' the average exchange rate and the date.
 #'
-#' @param start_date inputted starting date in the format specified '%YYYY-%mm-%dd'
-#' @param end_date inputted ending date in the format specified '%YYYY-%mm-%dd'
+#' @param start_date inputted starting date in the format 
+#' specified '%YYYY-%mm-%dd'
+#' @param end_date inputted ending date in the format 
+#' specified '%YYYY-%mm-%dd'
 #'
 #' @return list of lists with fastest and slowest currency and the
 #' current exchange rate of the currencies in the given date range
@@ -109,20 +111,20 @@ fastest_slowest_currency <- function(start_date, end_date) {
   }
 
   # Computing the fastest growing currency and the slowest growing currency for the given range
-  tepm <- rbind(df[1,], df[nrow(df),])
+  tepm <- rbind(df[1, ], df[nrow(df), ])
   diff <- abs(diff(tepm))
 
-  nums <- as.numeric(diff[2,-c(1,2)])
+  nums <- as.numeric(diff[2, -c(1,2)])
   fastestcurr <- names(which.max(nums))
   slowestcurr <- names(which.min(nums))
 
-  # calculates and stores the increase and decrease overall
+  # calculates and stores the increase and decrease overall -  user can access this later on
   fastdiff <- max(nums)
   slowdiff <- min(nums)
 
   # Extracting the current rate of the slowest and the fastest currencies
-  slow_current_rate <- data[nrow(data),slowestcurr]
-  fast_current_rate <- data[nrow(data),fastestcurr]
+  slow_current_rate <- data[nrow(data), slowestcurr]
+  fast_current_rate <- data[nrow(data), fastestcurr]
 
   # returning the computed values
   return(list(list(fastestcurr, fast_current_rate), list(slowestcurr, slow_current_rate)))
