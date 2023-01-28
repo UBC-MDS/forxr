@@ -30,3 +30,4 @@ test_that("data frame is exported as CSV file when export_csv = FALSE", {
   retrieve_data(export_csv = FALSE)
   expect_false(file.exists("data_raw.csv"))
 })
+
