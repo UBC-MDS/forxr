@@ -75,17 +75,17 @@ currency_convert <- function(value, currency1, currency2) {
       stop("The currency to be converted is invalid!")
     }
   }
-  
+
   if (!(currency2 %in% names)){
    if (!(currency2 =='CAD')){
      stop("The currency to be converted to is invalid!")
    }
   }
-    
-  if (value<=0){
+
+   if (value<=0){
      stop("Please enter an positive amount!!")
   }
-    
+
   if (currency2 =='CAD'){
     if(currency1 == 'CAD'){
      return(round(value,3))
@@ -112,7 +112,6 @@ currency_convert <- function(value, currency1, currency2) {
    return(round(value*rt1/rt2,3))
   }
 }
-
 
 #' This function takes currency exchange rates data as input and returns a
 #' list of two strings containing the fastest and slowest growing currency
