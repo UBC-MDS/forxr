@@ -16,19 +16,22 @@
 #' @examples
 #' fastest_slowest_currency('2019-05-23', '2022-05-30')
 fastest_slowest_currency <- function(start_date, end_date) {
-  options(warn=-1)
+  options(warn = -1)
   library(tidyr)
   library(tidyverse)
 
+  # Unit tests for the function
   # Check for invalid date format
-  if (!grepl("^\\d{4}-\\d{2}-\\d{2}$", start_date) || !grepl("^\\d{4}-\\d{2}-\\d{2}$", end_date)){
+  if (!grepl("^\\d{4}-\\d{2}-\\d{2}$", start_date) || !grepl("^\\d{4}-\\d{2}-\\d{2}$", end_date))
+  {
     stop("Invalid date format. Please enter dates in the format '%YYYY-%mm-%dd'.")
   }
 
   # Check for invalid range of dates
   start <- as.Date(start_date, format = "%Y-%m-%d")
   end <- as.Date(end_date, format = "%Y-%m-%d")
-  if (start > end){
+  if (start > end)
+  {
     stop("Invalid date range. Please ensure that the start date is before the end date.")
   }
 
@@ -37,20 +40,28 @@ fastest_slowest_currency <- function(start_date, end_date) {
   df <- data[data$date >= start & data$date <= end,]
 
   # Check for empty data
-  if (nrow(df) == 0){
+  if (nrow(df) == 0)
+  {
     stop("No data available for the specified date range.")
   }
 
   # Computing the fastest growing currency and the slowest growing currency for the given range
-  tepm <- rbind(df[1, ], df[nrow(df), ])
-  rows <- nrow(tepm)
-  diff_frame <- 100*(tepm[-1,] - tepm[-2,]) / tepm[-1,]
-  diff_longer <- diff_frame |>
-    pivot_longer(`AUD`:`CAD`, names_to = "variable", values_to = "value") |>
-    arrange(desc(value))
+  tepm <- df[1,] 
+  tepm <- rbind(tepm, df[nrow(df),])
+  diff <- tepm[nrow(tepm),] - tepm[1,]
+  nums <- diff %>% select(-c("date", "CAD"))
+  nums <- abs(nums)
 
-  fst_slw <- rbind(diff_longer[1, ], diff_longer[nrow(diff_longer), ])
+  fastestcurr <- names(which.max(nums))
+  slowestcurr <- names(which.min(nums))
 
-  # returning the computed values
-  return(list(list(fst_slw$variable[1], fst_slw$value[1]), list(fst_slw$variable[2], fst_slw$value[2])))
+  # calculates and stores the increase and decrease overall - user can use this later on
+  fastdiff <- max(nums)
+  slowdiff <- min(nums)
+
+  # Extracting the current rate of the slowest and the fastest currencies
+  slow_current_rate <- data[nrow(data), slowestcurr]
+  fast_current_rate <- data[nrow(data), fastestcurr]
+
+  return(list(list(fastestcurr, fast_current_rate), list(slowestcurr, slow_current_rate)))
 }
