@@ -8,7 +8,9 @@
 
 Package to access daily exchange rates and forex conversion created by Group 6: Dhruvi Nishar, Mohammad Reza Nabizadeh, Hongjian Li, and Stepan Zaiatc.
 
-`forxr` allows users to easily convert currency rates by utilizing data from [Bank of Canada](https://www.bankofcanada.ca/rates/exchange/daily-exchange-rates/). The package supports multiple currencies and provides historical exchange rates. It also has the ability to make currency conversions with the use of a simple function call, making it easy for developers to integrate into their projects. Additionally, it provides a way to get historical exchange rates in a chart, which makes it useful for dashboard building. Overall, **forxr** is a powerful and flexible package for handling currency conversions in R.
+`forxr` allows users to easily convert currency rates by utilizing data from [Bank of Canada](https://www.bankofcanada.ca/rates/exchange/daily-exchange-rates/). The package supports multiple currencies and provides historical exchange rates. It also has the ability to make currency conversions with the use of a simple function call, making it easy for developers to integrate into their projects. Additionally, it provides a way to get historical exchange rates in a chart, which makes it useful for dashboard building. 
+
+Overall, *forxr* is a powerful and flexible package that provides a comprehensive solution for handling currency conversions in R. Accessing and converting currency rates from authoritative source, supporting multiple currencies convertion to/from CAD, providing historical exchange rates, and its ease of use make it a valuable addition to the R ecosystem.
 
 ## Installation
 
