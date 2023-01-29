@@ -2,7 +2,7 @@
 #' in CSV format from Bank of Canada website.The function pre-processes and
 #' cleans the data to transform it into a more usable format.
 #'
-#' @param output if the value is False then only display the data frame,
+#' @param export_csv if the value is False then only display the data frame,
 #' if the value is True then write the file to the current working directory
 #'
 #' @return cleaned and processed csv data file that includes historical
@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-#' retrieve_data(output)
+#' retrieve_data(export_csv = FALSE)
 retrieve_data <- function(export_csv = FALSE) {
   # Read CSV file and reset the index
   url <- 'https://raw.githubusercontent.com/mrnabiz/forx_source/main/data/raw/raw_data_cad.csv'
