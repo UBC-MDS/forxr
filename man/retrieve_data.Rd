@@ -9,7 +9,7 @@ cleans the data to transform it into a more usable format.}
 retrieve_data(export_csv = FALSE)
 }
 \arguments{
-\item{output}{if the value is False then only display the data frame,
+\item{export_csv}{if the value is False then only display the data frame,
 if the value is True then write the file to the current working directory}
 }
 \value{
@@ -22,5 +22,5 @@ in CSV format from Bank of Canada website.The function pre-processes and
 cleans the data to transform it into a more usable format.
 }
 \examples{
-retrieve_data(output)
+retrieve_data(export_csv = FALSE)
 }

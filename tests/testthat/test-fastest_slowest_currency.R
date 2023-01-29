@@ -10,23 +10,29 @@ test_that("start and end date are correct", {
   end_date <- "2022-05-30"
   start <- as.Date(start_date, format = "%Y-%m-%d")
   end <- as.Date(end_date, format = "%Y-%m-%d")
-  expect_that(as.numeric(difftime(start, end, units = "days")) > 0, is_true())
+  expect_true(as.numeric(difftime(end, start, units = "days")) > 0 )
 })
 
 # Tests if the function returns the items in the proper format of lists
 test_that("function returns a list", {
+  start_date <- "2019-05-23"
+  end_date <- "2022-05-30"
   res <- fastest_slowest_currency(start_date, end_date)
-  expect_that(is.list(res), is_true())
+  expect_equal(typeof(res), 'list')
 })
 
 # Tests if the function returns the correct fastest currency
 test_that("function returns correct fastest currency", {
+  start_date <- "2019-05-23"
+  end_date <- "2022-05-30"
   res <- fastest_slowest_currency(start_date, end_date)
-  expect_equal(res[[1]][1], "EUR")
+  expect_true(res[[1]][1] == "TWD")
 })
 
 # Tests if the function returns the correct slowest currency
 test_that("function returns correct slowest currency", {
+  start_date <- "2019-05-23"
+  end_date <- "2022-05-30"
   res <- fastest_slowest_currency(start_date, end_date)
-  expect_equal(res[[2]][1], "IDR")
+  expect_true(res[[2]][1] == "TRY")
 })

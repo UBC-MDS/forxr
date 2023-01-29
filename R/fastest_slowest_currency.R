@@ -16,6 +16,9 @@
 #' @examples
 #' fastest_slowest_currency('2019-05-23', '2022-05-30')
 fastest_slowest_currency <- function(start_date, end_date) {
+  options(warn=-1)
+  library(tidyr)
+  library(tidyverse)
 
   # Check for invalid date format
   if (!grepl("^\\d{4}-\\d{2}-\\d{2}$", start_date) || !grepl("^\\d{4}-\\d{2}-\\d{2}$", end_date)){
@@ -40,20 +43,14 @@ fastest_slowest_currency <- function(start_date, end_date) {
 
   # Computing the fastest growing currency and the slowest growing currency for the given range
   tepm <- rbind(df[1, ], df[nrow(df), ])
-  diff <- abs(diff(tepm))
+  rows <- nrow(tepm)
+  diff_frame <- 100*(tepm[-1,] - tepm[-2,]) / tepm[-1,]
+  diff_longer <- diff_frame |>
+    pivot_longer(`AUD`:`CAD`, names_to = "variable", values_to = "value") |>
+    arrange(desc(value))
 
-  nums <- as.numeric(diff[2, -c(1,2)])
-  fastestcurr <- names(which.max(nums))
-  slowestcurr <- names(which.min(nums))
-
-  # calculates and stores the increase and decrease overall -  user can access this later on
-  fastdiff <- max(nums)
-  slowdiff <- min(nums)
-
-  # Extracting the current rate of the slowest and the fastest currencies
-  slow_current_rate <- data[nrow(data), slowestcurr]
-  fast_current_rate <- data[nrow(data), fastestcurr]
+  fst_slw <- rbind(diff_longer[1, ], diff_longer[nrow(diff_longer), ])
 
   # returning the computed values
-  return(list(list(fastestcurr, fast_current_rate), list(slowestcurr, slow_current_rate)))
+  return(list(list(fst_slw$variable[1], fst_slw$value[1]), list(fst_slw$variable[2], fst_slw$value[2])))
 }
