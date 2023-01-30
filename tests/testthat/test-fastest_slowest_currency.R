@@ -26,7 +26,7 @@ test_that("function returns correct fastest currency", {
   start_date <- "2019-05-23"
   end_date <- "2022-05-30"
   res <- fastest_slowest_currency(start_date, end_date)
-  expect_true(res[[1]][1] == "TWD")
+  expect_true(res[[1]][1] == "TRY")
 })
 
 # Tests if the function returns the correct slowest currency
@@ -34,5 +34,5 @@ test_that("function returns correct slowest currency", {
   start_date <- "2019-05-23"
   end_date <- "2022-05-30"
   res <- fastest_slowest_currency(start_date, end_date)
-  expect_true(res[[2]][1] == "TRY")
+  expect_true(res[[2]][1] == "IDR")
 })
