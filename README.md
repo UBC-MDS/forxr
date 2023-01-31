@@ -36,7 +36,8 @@ devtools::install_github("UBC-MDS/forxr")
 
 1. **Finance and Banking**: Banks and financial institutions often need to convert currencies for international transactions, and “forxr” can provide accurate and up-to-date exchange rates for these purposes. 
 2. **E-commerce**: Online retailers that sell internationally may need to display prices in multiple currencies, and “forxr” can help them convert the prices in real-time. 
-3. **Travel and Tourism**: Travel agencies and booking websites may need to convert currency for pricing and budgeting purposes, and “forxr” can provide them with accurate exchange rates. 4. **Data Analysis**: Companies that conduct global business can use “forxr” to collect and analyze historical exchange rate data, which can be useful for making business decisions and forecasting.
+3. **Travel and Tourism**: Travel agencies and booking websites may need to convert currency for pricing and budgeting purposes, and “forxr” can provide them with accurate exchange rates. 
+4. **Data Analysis**: Companies that conduct global business can use “forxr” to collect and analyze historical exchange rate data, which can be useful for making business decisions and forecasting.
 
 ## Where the package fits into the R ecosystem?
 
