@@ -19,6 +19,8 @@ devtools::install_github("UBC-MDS/forxr")
 
 ## Usage
 
+Please note that you can **click** on each of the functions below to see **detailed use case examples**.
+
 One of the most common tasks in many of the industries such as finance, marketing, accounting etc. is currency conversion. Here we outline the steps needed to take in order to be able to utilize this package in R to convert international currencies to/from Canadian Dollar:
 
 1. Install the package by following the steps in **"Installation"** section above.
