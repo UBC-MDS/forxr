@@ -28,7 +28,7 @@ Package to access daily exchange rates and forex conversion created by Group 6: 
 
 You can install the development version of forxr from [GitHub](https://github.com/) with:
       
-```{r}
+```{r message=FALSE}
 # install.packages("devtools")
 devtools::install_github("UBC-MDS/forxr")
 ```
