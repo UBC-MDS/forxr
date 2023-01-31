@@ -12,7 +12,7 @@ Package to access daily exchange rates and forex conversion created by Group 6: 
 
 You can install the development version of forxr from [GitHub](https://github.com/) with:
       
-``` r
+```{r}
 # install.packages("devtools")
 devtools::install_github("UBC-MDS/forxr")
 ```
@@ -33,28 +33,24 @@ library(forxr)
 
 ```{r}
 retrieve_data(export_csv = FALSE)
-forxr::retrieve_data(export_csv = FALSE)
 ```
 
 4. Once the data is loaded, `currency_convert()` function will then take a currency value (first argument) and the currency type to be converted **FROM** (second argument) followed by the currency type to be converted **TO** (third argument) as input arguments. This function will calculate the average conversion rate available by 4:00 pm ET of the closest business day of the currency type you are trying to convert to. It will then apply average rate to the currency value specified as the first argument and the return the final .
 
 ```{r}
 currency_convert(23, 'CAD', 'AUD')
-forxr::currency_convert(23, 'CAD', 'AUD')
 ```
 
 5. To further expand on this package we developed the function that returns a **list** of two strings containing the fastest and slowest growing currency exchange rates in relation to Canadian Dollar. The user has to specify the start date as first argument in the following format '%YYYY-%mm-%dd'  and the end date as second argument in the following format the '%YYYY-%mm-%dd'. The returned output is then as follows: **fastest growing currency type**, **fastest growing currency rate**, **slowest growing currency type**, **slowest growing currency rate**.
 
 ```{r}
 fastest_slowest_currency('2019-05-23', '2022-05-30')
-forxr::fastest_slowest_currency('2019-05-23', '2022-05-30')
 ```
 
 6. In order to further analyze currecncy exchange rates, you could plot the historical rate of entered currency types within sepcified period of time. `plot_historical()` will take start date ('%YYYY-%mm-%dd') as first argument, end date ('%YYYY-%mm-%dd') as second argument, currency type to convert **FROM** as third argument and currency type to convert **TO** as forth argument. The object returned will be ggplot line graph with `Date` on the x-axis and `Currency Type` on the y-axis.
 
 ```{r}
 plot_historical('2020-05-23', '2022-05-30', 'USD', 'CAD')
-forxr::plot_historical('2020-05-23', '2022-05-30', 'USD', 'CAD')
 ```
 
 ### Functions included in the package:
