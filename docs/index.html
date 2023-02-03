@@ -41,7 +41,7 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="articles/forxr_vignette.html">forxr_vignette</a>
+    <a class="dropdown-item" href="articles/forxr_vignette.html">Introduction to forxr</a>
   </div>
 </li>
       </ul>
@@ -62,22 +62,40 @@
 <!-- badges: start -->
 <!-- badges: end -->
 <p>Package to access daily exchange rates and forex conversion created by Group 6: Dhruvi Nishar, Mohammad Reza Nabizadeh, Hongjian Li, and Stepan Zaiatc.</p>
-<p><code>forxr</code> allows users to easily convert currency rates by utilizing data from <a href="https://www.bankofcanada.ca/rates/exchange/daily-exchange-rates/" class="external-link">Bank of Canada</a>. The package supports multiple currencies and provides historical exchange rates. It also has the ability to make currency conversions with the use of a simple function call, making it easy for developers to integrate into their projects. Additionally, it provides a way to get historical exchange rates in a chart, which makes it useful for dashboard building.</p>
-<p>Overall, <em>forxr</em> is a powerful and flexible package that provides a comprehensive solution for handling currency conversions in R. Accessing and converting currency rates from authoritative source, supporting multiple currencies convertion to/from CAD, providing historical exchange rates, and its ease of use make it a valuable addition to the R ecosystem.</p>
+<p><code>forxpy</code> allows users to easily convert currency rates by utilizing data from <a href="https://www.bankofcanada.ca/rates/exchange/daily-exchange-rates/" class="external-link">Bank of Canada</a>. The package supports multiple currencies and provides historical exchange rates. It also has the ability to make currency conversions with the use of a simple function call, making it easy for developers to integrate into their projects. Additionally, it provides a way to get historical exchange rates in a chart, which makes it useful for dashboard building. Overall, <strong>forxpy</strong> is a powerful and flexible package for handling currency conversions in Python.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of regexcite from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"UBC-MDS/forxr"</span><span class="op">)</span></span></code></pre></div>
+<p>You can install the development version of forxr from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<pre class="{r}"><code><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"UBC-MDS/forxr"</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<ul>
-<li>TODO</li>
-</ul>
+<p>Please note that you can <strong>click</strong> on each of the functions below to see <strong>detailed use case examples</strong>.</p>
+<p>One of the most common tasks in many of the industries such as finance, marketing, accounting etc. is currency conversion. Here we outline the steps needed to take in order to be able to utilize this package in R to convert international currencies to/from Canadian Dollar:</p>
+<ol style="list-style-type: decimal">
+<li><p>Install the package by following the steps in <strong>“Installation”</strong> section above.</p></li>
+<li><p>Load the package: After installation, load the package in your R environment by running <strong>library(forxr)</strong>.</p></li>
+</ol>
+<pre class="{r}"><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">forxr</span><span class="op">)</span></span></code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Retrieve exchange rate data: Use the retrieve_data() function to retrieve historical exchange rate data for Canadian Dollar. This function will retrieve historical daily currency exchange rates data for Canadian Dollar in CSV format from Bank of Canada website. You could also specify whether you would like the data frame to be written to a file in your current working directory by changing the value to an argument to TRUE <code>export_csv = TRUE</code>, or leave it as FALSE to display the data frame only. The data is drawn from <a href="https://www.bankofcanada.ca/rates/exchange/daily-exchange-rates/" class="external-link">Bank of Canada</a>. The data is updated daily.</li>
+</ol>
+<pre class="{r}"><code><span><span class="fu"><a href="reference/retrieve_data.html">retrieve_data</a></span><span class="op">(</span>export_csv <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Once the data is loaded, <code><a href="reference/currency_convert.html">currency_convert()</a></code> function will then take a currency value (first argument) and the currency type to be converted <strong>FROM</strong> (second argument) followed by the currency type to be converted <strong>TO</strong> (third argument) as input arguments. This function will calculate the average conversion rate available by 4:00 pm ET of the closest business day of the currency type you are trying to convert to. It will then apply average rate to the currency value specified as the first argument and the return the final .</li>
+</ol>
+<pre class="{r}"><code><span><span class="fu"><a href="reference/currency_convert.html">currency_convert</a></span><span class="op">(</span><span class="fl">23</span>, <span class="st">'CAD'</span>, <span class="st">'AUD'</span><span class="op">)</span></span></code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>To further expand on this package we developed the function that returns a <strong>list</strong> of two strings containing the fastest and slowest growing currency exchange rates in relation to Canadian Dollar. The user has to specify the start date as first argument in the following format ‘%YYYY-%mm-%dd’ and the end date as second argument in the following format the ‘%YYYY-%mm-%dd’. The returned output is then as follows: <strong>fastest growing currency type</strong>, <strong>fastest growing currency rate</strong>, <strong>slowest growing currency type</strong>, <strong>slowest growing currency rate</strong>.</li>
+</ol>
+<pre class="{r}"><code><span><span class="fu"><a href="reference/fastest_slowest_currency.html">fastest_slowest_currency</a></span><span class="op">(</span><span class="st">'2019-05-23'</span>, <span class="st">'2022-05-30'</span><span class="op">)</span></span></code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>In order to further analyze currecncy exchange rates, you could plot the historical rate of entered currency types within sepcified period of time. <code><a href="reference/plot_historical.html">plot_historical()</a></code> will take start date (‘%YYYY-%mm-%dd’) as first argument, end date (‘%YYYY-%mm-%dd’) as second argument, currency type to convert <strong>FROM</strong> as third argument and currency type to convert <strong>TO</strong> as forth argument. The object returned will be ggplot line graph with <code>Date</code> on the x-axis and <code>Currency Type</code> on the y-axis.</li>
+</ol>
+<pre class="{r}"><code><span><span class="fu"><a href="reference/plot_historical.html">plot_historical</a></span><span class="op">(</span><span class="st">'2020-05-23'</span>, <span class="st">'2022-05-30'</span>, <span class="st">'USD'</span>, <span class="st">'CAD'</span><span class="op">)</span></span></code></pre>
 <div class="section level3">
 <h3 id="functions-included-in-the-package">Functions included in the package:<a class="anchor" aria-label="anchor" href="#functions-included-in-the-package"></a>
 </h3>
@@ -87,19 +105,11 @@
 <li>
 <strong>currency_convert</strong>: The conversion rate is based on the average exchange rate by the 4:00 pm ET of the closest business day.</li>
 <li>
-<strong>fastest_slowest_currency()</strong>: This function takes currency exchange rates data as input and returns a list of two strings containing the fastest and slowest growing currency exchange rate in relation to Canadian Dollar. The data provided contains currency code in the format FX***CAD, the average exchange rate and the date.</li>
+<strong>fastest_slowest_currency()</strong>: This function takes start and end dates as input and returns a list of lists containing the fastest and slowest growing currency exchange rate in relation to Canadian Dollar along with the current exchange rates in the given date range. The data provided contains currency code in the format FX***CAD, the average exchange rate and the date.</li>
 <li>
 <strong>plot_historical()</strong>:Plots the historical rate of the entered currencies within a specific period of time.</li>
 </ul>
-<p><strong>forxpy</strong> can be a useful tool for many industries that require currency conversions. Here are a few examples:</p>
-<ol style="list-style-type: decimal">
-<li>
-<strong>Finance and Banking</strong>: Banks and financial institutions often need to convert currencies for international transactions, and “forxr” can provide accurate and up-to-date exchange rates for these purposes.</li>
-<li>
-<strong>E-commerce</strong>: Online retailers that sell internationally may need to display prices in multiple currencies, and “forxr” can help them convert the prices in real-time.</li>
-<li>
-<strong>Travel and Tourism</strong>: Travel agencies and booking websites may need to convert currency for pricing and budgeting purposes, and “forxr” can provide them with accurate exchange rates. 4. <strong>Data Analysis</strong>: Companies that conduct global business can use “forxr” to collect and analyze historical exchange rate data, which can be useful for making business decisions and forecasting.</li>
-</ol>
+<p><strong>forxpy</strong> can be a useful tool for many industries that require currency conversions. Here are a few examples: 1. <strong>Finance and Banking</strong>: Banks and financial institutions often need to convert currencies for international transactions, and “forxpy” can provide accurate and up-to-date exchange rates for these purposes. 2. <strong>E-commerce</strong>: Online retailers that sell internationally may need to display prices in multiple currencies, and “forxpy” can help them convert the prices in real-time. 3. <strong>Travel and Tourism</strong>: Travel agencies and booking websites may need to convert currency for pricing and budgeting purposes, and “forxpy” can provide them with accurate exchange rates. 4. <strong>Data Analysis</strong>: Companies that conduct global business can use “forxpy” to collect and analyze historical exchange rate data, which can be useful for making business decisions and forecasting.</p>
 </div>
 </div>
 <div class="section level2">
