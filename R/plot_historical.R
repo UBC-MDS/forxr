@@ -1,16 +1,21 @@
+#' plot_historical
+#'
+#' @description
+#'
 #' Plots the historical rate of the entered currencies within a specific
 #' period of time.
 #'
-#' @param start_date Entered starting date in the format specified '%YYYY-%mm-%dd'
-#' @param end_date Entered ending date in the format specified '%YYYY-%mm-%dd'
-#' @param currency1 The type of based currency asked for plotting
-#' @param currency2 The type of exchange currency asked for plotting
+#' @param start_date Entered starting date in the format specified '%YYYY-%mm-%dd'.
+#' @param end_date Entered ending date in the format specified '%YYYY-%mm-%dd'.
+#' @param currency1 The type of based currency asked for plotting.
+#' @param currency2 The type of exchange currency asked for plotting.
 #'
 #' @return A plot showing the performance of the currency.
 #' @export
 #'
 #' @examples
 #' plot_historical('2020-05-23', '2022-05-30', 'USD', 'CAD')
+#'
 plot_historical <-function(start_date, end_date, currency1, currency2){
   library(tidyverse)
   library(ggplot2)

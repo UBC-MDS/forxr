@@ -1,3 +1,6 @@
+#' retrieve_data
+#'
+#' @description
 #' Retrieve historical daily currency exchange rates data for Canadian Dollar
 #' in CSV format from Bank of Canada website.The function pre-processes and
 #' cleans the data to transform it into a more usable format.
@@ -7,10 +10,12 @@
 #'
 #' @return cleaned and processed csv data file that includes historical
 #' data on currency exchange rates
+#'
 #' @export
 #'
 #' @examples
 #' retrieve_data(export_csv = FALSE)
+#'
 retrieve_data <- function(export_csv = FALSE) {
   # Read CSV file and reset the index
   url <- 'https://raw.githubusercontent.com/mrnabiz/forx_source/main/data/raw/raw_data_cad.csv'

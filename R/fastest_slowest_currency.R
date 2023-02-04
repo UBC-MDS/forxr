@@ -1,3 +1,6 @@
+#' fastest_slowest_currency
+#'
+#' @description
 #' This function takes currency exchange rates data as input and returns a
 #' list of two strings containing the fastest and slowest growing currency
 #' exchange rate in relation to Canadian Dollar.
@@ -11,10 +14,12 @@
 #'
 #' @return list of lists with fastest and slowest currency and the
 #' current exchange rate of the currencies in the given date range
+#'
 #' @export
 #'
 #' @examples
 #' fastest_slowest_currency('2019-05-23', '2022-05-30')
+#'
 fastest_slowest_currency <- function(start_date, end_date) {
   options(warn = -1)
   library(tidyr)
@@ -46,7 +51,7 @@ fastest_slowest_currency <- function(start_date, end_date) {
   }
 
   # Computing the fastest growing currency and the slowest growing currency for the given range
-  tepm <- df[1,] 
+  tepm <- df[1,]
   tepm <- rbind(tepm, df[nrow(df),])
   diff <- tepm[nrow(tepm),] - tepm[1,]
   nums <- diff %>% select(-c("date", "CAD"))

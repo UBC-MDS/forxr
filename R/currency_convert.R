@@ -1,6 +1,9 @@
-#' Takes a currency value and the currency type
-#'to be converted to as input and returns the converted currency
-#'value as per the current conversion rate.
+#' currency_convert
+#'
+#' @description
+#' Takes a currency value and the currency type to be converted to as input and returns the converted currency
+#' value as per the current conversion rate.
+#'
 #' @param value The value of the original currency to be converted
 #' @param currency1 The type of currency originally
 #' @param currency2 The type of currency that the currency1 will be converted to
@@ -10,6 +13,7 @@
 #'
 #' @examples
 #' currency_convert(23, 'USD', 'CAD')
+#'
 currency_convert <- function(value, currency1, currency2) {
   df <- retrieve_data()
 
