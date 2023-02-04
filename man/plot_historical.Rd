@@ -2,19 +2,18 @@
 % Please edit documentation in R/plot_historical.R
 \name{plot_historical}
 \alias{plot_historical}
-\title{Plots the historical rate of the entered currencies within a specific
-period of time.}
+\title{plot_historical}
 \usage{
 plot_historical(start_date, end_date, currency1, currency2)
 }
 \arguments{
-\item{start_date}{Entered starting date in the format specified '\%YYYY-\%mm-\%dd'}
+\item{start_date}{Entered starting date in the format specified '\%YYYY-\%mm-\%dd'.}
 
-\item{end_date}{Entered ending date in the format specified '\%YYYY-\%mm-\%dd'}
+\item{end_date}{Entered ending date in the format specified '\%YYYY-\%mm-\%dd'.}
 
-\item{currency1}{The type of based currency asked for plotting}
+\item{currency1}{The type of based currency asked for plotting.}
 
-\item{currency2}{The type of exchange currency asked for plotting}
+\item{currency2}{The type of exchange currency asked for plotting.}
 }
 \value{
 A plot showing the performance of the currency.
@@ -25,4 +24,5 @@ period of time.
 }
 \examples{
 plot_historical('2020-05-23', '2022-05-30', 'USD', 'CAD')
+
 }

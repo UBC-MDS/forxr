@@ -2,9 +2,7 @@
 % Please edit documentation in R/currency_convert.R
 \name{currency_convert}
 \alias{currency_convert}
-\title{Takes a currency value and the currency type
-to be converted to as input and returns the converted currency
-value as per the current conversion rate.}
+\title{currency_convert}
 \usage{
 currency_convert(value, currency1, currency2)
 }
@@ -19,10 +17,10 @@ currency_convert(value, currency1, currency2)
 Returns converted numeric currency
 }
 \description{
-Takes a currency value and the currency type
-to be converted to as input and returns the converted currency
+Takes a currency value and the currency type to be converted to as input and returns the converted currency
 value as per the current conversion rate.
 }
 \examples{
 currency_convert(23, 'USD', 'CAD')
+
 }

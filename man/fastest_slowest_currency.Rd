@@ -2,11 +2,7 @@
 % Please edit documentation in R/fastest_slowest_currency.R
 \name{fastest_slowest_currency}
 \alias{fastest_slowest_currency}
-\title{This function takes currency exchange rates data as input and returns a
-list of two strings containing the fastest and slowest growing currency
-exchange rate in relation to Canadian Dollar.
-The data provided contains currency code in the format FX***CAD,
-the average exchange rate and the date.}
+\title{fastest_slowest_currency}
 \usage{
 fastest_slowest_currency(start_date, end_date)
 }
@@ -30,4 +26,5 @@ the average exchange rate and the date.
 }
 \examples{
 fastest_slowest_currency('2019-05-23', '2022-05-30')
+
 }
